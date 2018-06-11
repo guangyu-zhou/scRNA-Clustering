@@ -1,0 +1,11 @@
+library(googlesheets)
+gs_ls()
+be <- gs_title("scRNA result")
+gs_ws_ls(be)
+cor<- gs_read(ss=be, ws = "0604 Correlation")
+wdf <- as.data.frame(cor)
+Hong = wdf[1:6]
+colnames(Hong)
+par(font.axis = 2)
+par(font.lab = 2)
+boxplot(Hong, main="a", names = colnames(Hong))
